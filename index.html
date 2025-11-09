@@ -1,410 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Temu House Order - Fair Road</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .section {
+        background: white;
+        margin-bottom: 25px;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      .section h2 {
+        color: #667eea;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .section h3 {
+        color: #555;
+        font-size: 1.2em;
+        margin-top: 20px;
+        margin-bottom: 12px;
+      }
+
+      .item {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #fafafa;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+      }
+
+      .item p {
+        margin-bottom: 10px;
+        color: #666;
+        font-size: 0.95em;
+      }
+
+      .item strong {
+        color: #333;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.05em;
+      }
+
+      a {
+        color: #667eea;
+        text-decoration: none;
+        word-break: break-all;
+        display: inline-block;
+        padding: 8px 12px;
+        background: #e8eaf6;
+        border-radius: 6px;
+        margin-top: 8px;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+      }
+
+      .option-group {
+        margin-top: 15px;
+      }
+
+      .option-group .item {
+        border-left-color: #ff9800;
+        margin-bottom: 12px;
+      }
+
+      .note {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        font-size: 0.95em;
+      }
+
+      .note strong {
+        color: #856404;
+      }
+
+      ul {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+
+      ul li {
+        margin-bottom: 8px;
+        color: #666;
+      }
+
+      @media (max-width: 768px) {
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+          padding: 15px;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          padding: 20px 15px;
         }
 
         h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
+          font-size: 1.6em;
         }
 
         .section {
-            background: white;
-            margin-bottom: 25px;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+          padding: 20px 15px;
         }
 
         .section h2 {
-            color: #667eea;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .section h3 {
-            color: #555;
-            font-size: 1.2em;
-            margin-top: 20px;
-            margin-bottom: 12px;
-        }
-
-        .item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #fafafa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .item p {
-            margin-bottom: 10px;
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        .item strong {
-            color: #333;
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.05em;
+          font-size: 1.3em;
         }
 
         a {
-            color: #667eea;
-            text-decoration: none;
-            word-break: break-all;
-            display: inline-block;
-            padding: 8px 12px;
-            background: #e8eaf6;
-            border-radius: 6px;
-            margin-top: 8px;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
+          font-size: 0.85em;
+          padding: 10px;
+          display: block;
+          text-align: center;
         }
 
-        a:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        .item {
+          padding: 12px;
+        }
+      }
+
+      @media (orientation: portrait) and (max-width: 768px) {
+        body {
+          padding: 12px;
         }
 
-        .option-group {
-            margin-top: 15px;
+        .section {
+          padding: 18px 12px;
         }
 
-        .option-group .item {
-            border-left-color: #ff9800;
-            margin-bottom: 12px;
+        h1 {
+          font-size: 1.5em;
         }
-
-        .note {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            font-size: 0.95em;
-        }
-
-        .note strong {
-            color: #856404;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        ul li {
-            margin-bottom: 8px;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-
-            header {
-                padding: 20px 15px;
-            }
-
-            h1 {
-                font-size: 1.6em;
-            }
-
-            .section {
-                padding: 20px 15px;
-            }
-
-            .section h2 {
-                font-size: 1.3em;
-            }
-
-            a {
-                font-size: 0.85em;
-                padding: 10px;
-                display: block;
-                text-align: center;
-            }
-
-            .item {
-                padding: 12px;
-            }
-        }
-
-        @media (orientation: portrait) and (max-width: 768px) {
-            body {
-                padding: 12px;
-            }
-
-            .section {
-                padding: 18px 12px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>🛣️ Temu House Order</h1>
-        <p>Fair Road Project</p>
+      <h1>🛣️ Temu House Order</h1>
+      <p>Fair Road Project</p>
     </header>
 
     <!-- Section 1: Cabinet Handles -->
     <section class="section">
-        <h2>1. Cabinet Handles</h2>
-        <div class="note">
-            <strong>Note:</strong> Stick to the same handles throughout, for main areas.<br>
-            Main Cupboards: 320mm long. Measure draws for correct size.
-        </div>
-        
-        <div class="item">
-            <strong>Main Handles (320mm):</strong>
-            <p>For Kitchen, Bookshelves, Bathrooms, Playroom Shelves</p>
-            <a href="https://www.temu.com/za/goods.html?_bg_fs=1&refer_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&refer_share_channel=whatsapp_chat&from_share=1&goods_id=601099702123566&_oak_page_source=417&_oak_region=184&refer_share_suin=RSSBCJECXAMW2TM7PBQGA36ANH4X44KMVH6OSWVD2NT7HPG4AADXDD3AIGEU3K5I3IMZTHMY5A&share_img=https://img-eu.kwcdn.com/goods-detail-img/35b7c2/yeUWmfsNGd/c6f0e2d6ee02410b9860c66f06c53e6b.png&share_ui_type=1&_oaksn_=GkazrHjXCk/18Z12HDkmw7qi5SDE4+fgFVqwtuBr2ik=" target="_blank">View Main Handles →</a>
-        </div>
+      <h2>1. Cabinet Handles</h2>
+      <div class="note">
+        <strong>Note:</strong> Stick to the same handles throughout, for main
+        areas.<br />
+        Main Cupboards: 320mm long. Measure draws for correct size.
+      </div>
 
-        <div class="item">
-            <strong>Knobs (for some areas):</strong>
-            <a href="https://www.temu.com/za/6-10pcs-matte-black-cabinet-knobs-suitable-for-kitchen-cabinets-and-vanity-drawers-round-single-hole--handles-pulls-cabinet-drawer-knobs-g-601100760204354.html?_oak_name_id=138353794401560018&_oak_mp_inf=EMKIpeqq1ogBGhZnb29kc19ubTFzYzhfcmVjb21tZW5kIM2Klr2mMw==&top_gallery_url=https://img.kwcdn.com/product/fancy/559c1db3-9512-4472-93d6-602b8f71eac3.jpg&spec_gallery_id=131454&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MTQzMDA&_oak_gallery_order=1265656616,376673384,489695370,673698923,1996448120&refer_page_el_sn=200444&_x_sessn_id=krj7vcq0um&refer_page_name=goods&refer_page_id=10032_1762675408501_3ahwenftmg" target="_blank">View Knobs Option 1 →</a>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601103870347505&sku_id=17611989794381&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037" target="_blank">View Knobs Option 2 →</a>
-        </div>
+      <div class="item">
+        <strong>Main Handles (320mm):</strong>
+        <p>For Kitchen, Bookshelves, Bathrooms, Playroom Shelves</p>
+        <a
+          href="https://www.temu.com/za/goods.html?_bg_fs=1&refer_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&refer_share_channel=whatsapp_chat&from_share=1&goods_id=601099702123566&_oak_page_source=417&_oak_region=184&refer_share_suin=RSSBCJECXAMW2TM7PBQGA36ANH4X44KMVH6OSWVD2NT7HPG4AADXDD3AIGEU3K5I3IMZTHMY5A&share_img=https://img-eu.kwcdn.com/goods-detail-img/35b7c2/yeUWmfsNGd/c6f0e2d6ee02410b9860c66f06c53e6b.png&share_ui_type=1&_oaksn_=GkazrHjXCk/18Z12HDkmw7qi5SDE4+fgFVqwtuBr2ik="
+          target="_blank"
+          >View Main Handles →</a
+        >
+      </div>
+
+      <div class="item">
+        <strong>Knobs (for some areas):</strong>
+        <a
+          href="https://www.temu.com/za/6-10pcs-matte-black-cabinet-knobs-suitable-for-kitchen-cabinets-and-vanity-drawers-round-single-hole--handles-pulls-cabinet-drawer-knobs-g-601100760204354.html?_oak_name_id=138353794401560018&_oak_mp_inf=EMKIpeqq1ogBGhZnb29kc19ubTFzYzhfcmVjb21tZW5kIM2Klr2mMw==&top_gallery_url=https://img.kwcdn.com/product/fancy/559c1db3-9512-4472-93d6-602b8f71eac3.jpg&spec_gallery_id=131454&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MTQzMDA&_oak_gallery_order=1265656616,376673384,489695370,673698923,1996448120&refer_page_el_sn=200444&_x_sessn_id=krj7vcq0um&refer_page_name=goods&refer_page_id=10032_1762675408501_3ahwenftmg"
+          target="_blank"
+          >View Knobs Option 1 →</a
+        >
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601103870347505&sku_id=17611989794381&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037"
+          target="_blank"
+          >View Knobs Option 2 →</a
+        >
+      </div>
     </section>
 
     <!-- Section 2: Kitchen Mixers -->
     <section class="section">
-        <h2>2. Kitchen Mixers</h2>
-        
-        <div class="item">
-            <strong>For Main Sinks:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099542721743&sku_id=17592327409155&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037" target="_blank">View Main Sink Mixer →</a>
-        </div>
+      <h2>2. Kitchen Mixers</h2>
 
-        <div class="item">
-            <strong>For the Trough:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102544625910&sku_id=17605218631307&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037" target="_blank">View Trough Mixer →</a>
-        </div>
+      <div class="item">
+        <strong>For Main Sinks:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099542721743&sku_id=17592327409155&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037"
+          target="_blank"
+          >View Main Sink Mixer →</a
+        >
+      </div>
+
+      <div class="item">
+        <strong>For the Trough:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102544625910&sku_id=17605218631307&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037"
+          target="_blank"
+          >View Trough Mixer →</a
+        >
+      </div>
     </section>
 
     <!-- Section 3: Bathroom Accessories -->
     <section class="section">
-        <h2>3. Bathroom Accessories</h2>
-        
-        <div class="item">
-            <strong>Basic for All:</strong>
-            <a href="https://www.temu.com/za/goods.html?_bg_fs=1&refer_share_id=tiUAKakYgL3f8A8E4HLbPgUt2j79nom9&refer_share_channel=whatsapp_chat&from_share=1&goods_id=601099801560584&_oak_page_source=417&_oak_region=184&refer_share_suin=RSSBAVQH7ZL3SUYSAJQGA36ANH4X44KMVH6OSWVD2NT7HPG5II7CMTKLSFKFZGJODYM374MCBQ&share_img=https://img-eu.kwcdn.com/goods-detail-img/35b7c2/yeUWmfsNGd/35063ba6fbbd4322817ceec44eb0822d.png&share_ui_type=1&_oaksn_=Nklg7ybrFGfUBTz1Bt/ta96Q0fhg3jt20pWKfVUCUjk=" target="_blank">View Basic Accessories →</a>
-        </div>
+      <h2>3. Bathroom Accessories</h2>
 
-        <h3>Guest Bathroom:</h3>
-        
-        <div class="item">
-            <strong>Toilet Paper Holder:</strong>
-            <p>Like the wood and the stand above to hold tissues</p>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601101372553383&sku_id=17599535257323&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037" target="_blank">View Toilet Paper Holder →</a>
-        </div>
+      <div class="item">
+        <strong>Basic for All:</strong>
+        <a
+          href="https://www.temu.com/za/goods.html?_bg_fs=1&refer_share_id=tiUAKakYgL3f8A8E4HLbPgUt2j79nom9&refer_share_channel=whatsapp_chat&from_share=1&goods_id=601099801560584&_oak_page_source=417&_oak_region=184&refer_share_suin=RSSBAVQH7ZL3SUYSAJQGA36ANH4X44KMVH6OSWVD2NT7HPG5II7CMTKLSFKFZGJODYM374MCBQ&share_img=https://img-eu.kwcdn.com/goods-detail-img/35b7c2/yeUWmfsNGd/35063ba6fbbd4322817ceec44eb0822d.png&share_ui_type=1&_oaksn_=Nklg7ybrFGfUBTz1Bt/ta96Q0fhg3jt20pWKfVUCUjk="
+          target="_blank"
+          >View Basic Accessories →</a
+        >
+      </div>
 
-        <div class="item">
-            <strong>Shelves:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100234901705&sku_id=17595296795944&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037" target="_blank">View Shelves →</a>
-        </div>
+      <h3>Guest Bathroom:</h3>
 
-        <div class="item">
-            <strong>Guest Towel Holder:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601103063008250&sku_id=17607790587461&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037" target="_blank">View Guest Towel Holder →</a>
-        </div>
+      <div class="item">
+        <strong>Toilet Paper Holder:</strong>
+        <p>Like the wood and the stand above to hold tissues</p>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601101372553383&sku_id=17599535257323&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037"
+          target="_blank"
+          >View Toilet Paper Holder →</a
+        >
+      </div>
+
+      <div class="item">
+        <strong>Shelves:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100234901705&sku_id=17595296795944&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037"
+          target="_blank"
+          >View Shelves →</a
+        >
+      </div>
+
+      <div class="item">
+        <strong>Guest Towel Holder:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601103063008250&sku_id=17607790587461&_oak_page_source=501&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=shopping_cart&refer_page_id=10037_1762524696903_py4acpl6x8&refer_page_sn=10037"
+          target="_blank"
+          >View Guest Towel Holder →</a
+        >
+      </div>
     </section>
 
     <!-- Section 4: Main Bathroom -->
     <section class="section">
-        <h2>4. Main Bathroom</h2>
-        
-        <h3>Shower Head:</h3>
-        <div class="option-group">
-            <div class="item">
-                <strong>With Arm:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102196502388&sku_id=17603494794454&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View With Arm →</a>
-            </div>
+      <h2>4. Main Bathroom</h2>
 
-            <div class="item">
-                <strong>Without Arm:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100133432994&sku_id=17594875970087&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Without Arm Option 1 →</a>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601101452638758&sku_id=17599919121581&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Without Arm Option 2 →</a>
-            </div>
+      <h3>Shower Head:</h3>
+      <div class="option-group">
+        <div class="item">
+          <strong>With Arm:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102196502388&sku_id=17603494794454&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+            target="_blank"
+            >View With Arm →</a
+          >
         </div>
 
         <div class="item">
-            <strong>Bath Faucet:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100931043756&sku_id=17597663831936&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Bath Faucet →</a>
+          <strong>Without Arm:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100133432994&sku_id=17594875970087&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+            target="_blank"
+            >View Without Arm Option 1 →</a
+          >
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601101452638758&sku_id=17599919121581&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+            target="_blank"
+            >View Without Arm Option 2 →</a
+          >
+        </div>
+      </div>
+
+      <div class="item">
+        <strong>Bath Faucet:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100931043756&sku_id=17597663831936&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+          target="_blank"
+          >View Bath Faucet →</a
+        >
+      </div>
+
+      <h3>Sink Faucet:</h3>
+      <div class="option-group">
+        <div class="item">
+          <strong>Option 1:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099552471673&sku_id=17592366750233&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+            target="_blank"
+            >View Option 1 →</a
+          >
         </div>
 
-        <h3>Sink Faucet:</h3>
-        <div class="option-group">
-            <div class="item">
-                <strong>Option 1:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099552471673&sku_id=17592366750233&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Option 1 →</a>
-            </div>
-
-            <div class="item">
-                <strong>Option 2:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102956671498&sku_id=17607249694611&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Option 2 →</a>
-            </div>
-
-            <div class="item">
-                <strong>Option 3:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102233963797&sku_id=17603687165286&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Option 3 →</a>
-            </div>
+        <div class="item">
+          <strong>Option 2:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102956671498&sku_id=17607249694611&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+            target="_blank"
+            >View Option 2 →</a
+          >
         </div>
+
+        <div class="item">
+          <strong>Option 3:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601102233963797&sku_id=17603687165286&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+            target="_blank"
+            >View Option 3 →</a
+          >
+        </div>
+      </div>
     </section>
 
     <!-- Section 5: Lighting -->
     <section class="section">
-        <h2>5. Lighting</h2>
-        <div class="note">
-            <strong>Important:</strong> Must be warm white
+      <h2>5. Lighting</h2>
+      <div class="note"><strong>Important:</strong> Must be warm white</div>
+
+      <div class="item">
+        <strong>Entrance Pendant:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099665181263&sku_id=17592774841423&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+          target="_blank"
+          >View Entrance Pendant →</a
+        >
+      </div>
+
+      <h3>Outer Barrier Wall:</h3>
+      <div class="option-group">
+        <div class="item">
+          <strong>Option 1:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100052296306&sku_id=17594494269685&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762677034054_n7ezj853tb&refer_page_sn=10037"
+            target="_blank"
+            >View Option 1 →</a
+          >
         </div>
 
         <div class="item">
-            <strong>Entrance Pendant:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099665181263&sku_id=17592774841423&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Entrance Pendant →</a>
+          <strong>Option 2:</strong>
+          <a
+            href="https://www.temu.com/za/4pcs-outdoor-led-filament-wall-lights-with--high--solar-panel-ip44-10-12h--auto-on-off-plug-and-play-installation-low-voltage-for-garden-patio-deck-driveway-porch-no-wiring-required-g-601104720761140.html?_oak_mp_inf=ELSi6sq51ogBGiA1NjMwMDE5Y2Q4NGM0NGY1OTM2OGQ1NTUwYzlkZWMyMCDR%2B6G8pjM%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Fopen%2F8d80e70bf4f947208b7ef0f80787f396-goods.jpeg&spec_gallery_id=26045462494&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NDIzMDA&_oak_gallery_order=1327133355%2C885260176%2C1237420556%2C1396706775%2C1095020486&search_key=outside%20barrier%20wall%20lantern%20%20lights&refer_page_el_sn=200049&_x_sessn_id=krj7vcq0um&refer_page_name=search_result&refer_page_id=10009_1762673590123_xps51ozxe3"
+            target="_blank"
+            >View Option 2 →</a
+          >
         </div>
+      </div>
 
-        <h3>Outer Barrier Wall:</h3>
-        <div class="option-group">
-            <div class="item">
-                <strong>Option 1:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100052296306&sku_id=17594494269685&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762677034054_n7ezj853tb&refer_page_sn=10037" target="_blank">View Option 1 →</a>
-            </div>
+      <div class="item">
+        <strong>Outside Front Door / Outside Back:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100790710415&sku_id=17597168403308&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+          target="_blank"
+          >View Outside Door Light →</a
+        >
+      </div>
 
-            <div class="item">
-                <strong>Option 2:</strong>
-                <a href="https://www.temu.com/za/4pcs-outdoor-led-filament-wall-lights-with--high--solar-panel-ip44-10-12h--auto-on-off-plug-and-play-installation-low-voltage-for-garden-patio-deck-driveway-porch-no-wiring-required-g-601104720761140.html?_oak_mp_inf=ELSi6sq51ogBGiA1NjMwMDE5Y2Q4NGM0NGY1OTM2OGQ1NTUwYzlkZWMyMCDR%2B6G8pjM%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Fopen%2F8d80e70bf4f947208b7ef0f80787f396-goods.jpeg&spec_gallery_id=26045462494&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NDIzMDA&_oak_gallery_order=1327133355%2C885260176%2C1237420556%2C1396706775%2C1095020486&search_key=outside%20barrier%20wall%20lantern%20%20lights&refer_page_el_sn=200049&_x_sessn_id=krj7vcq0um&refer_page_name=search_result&refer_page_id=10009_1762673590123_xps51ozxe3" target="_blank">View Option 2 →</a>
-            </div>
+      <div class="item">
+        <strong>Outdoor Lights for Steps:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099945107225&sku_id=17594017186044&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+          target="_blank"
+          >View Step Lights →</a
+        >
+      </div>
+
+      <div class="item">
+        <strong>Bathroom Sconces:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100311906415&sku_id=17595582588340&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037"
+          target="_blank"
+          >View Bathroom Sconces →</a
+        >
+      </div>
+
+      <h3>Bedroom Pendants:</h3>
+      <div class="option-group">
+        <div class="item">
+          <strong>Option 1:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601101526265321&sku_id=17600261855517&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675018128_n42wwt5g66&refer_page_sn=10037"
+            target="_blank"
+            >View Option 1 →</a
+          >
         </div>
 
         <div class="item">
-            <strong>Outside Front Door / Outside Back:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100790710415&sku_id=17597168403308&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Outside Door Light →</a>
+          <strong>Option 2:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100798254012&sku_id=17597203965250&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675018128_n42wwt5g66&refer_page_sn=10037"
+            target="_blank"
+            >View Option 2 →</a
+          >
         </div>
 
         <div class="item">
-            <strong>Outdoor Lights for Steps:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099945107225&sku_id=17594017186044&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Step Lights →</a>
+          <strong>Option 3:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100225803133&sku_id=17595257965524&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675018128_n42wwt5g66&refer_page_sn=10037"
+            target="_blank"
+            >View Option 3 →</a
+          >
         </div>
 
         <div class="item">
-            <strong>Bathroom Sconces:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100311906415&sku_id=17595582588340&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762517192131_v99z40dn9e&refer_page_sn=10037" target="_blank">View Bathroom Sconces →</a>
+          <strong>Option 4:</strong>
+          <a
+            href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601103788367874&sku_id=17611568955613&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675997600_wz1a0tp0nc&refer_page_sn=10037"
+            target="_blank"
+            >View Option 4 →</a
+          >
         </div>
+      </div>
 
-        <h3>Bedroom Pendants:</h3>
-        <div class="option-group">
-            <div class="item">
-                <strong>Option 1:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601101526265321&sku_id=17600261855517&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675018128_n42wwt5g66&refer_page_sn=10037" target="_blank">View Option 1 →</a>
-            </div>
+      <div class="item">
+        <strong>Dressing Table Light:</strong>
+        <a
+          href="https://eurotrend.co.za/product/light-16-italian-light/"
+          target="_blank"
+          >View Eurotrend Option →</a
+        >
+        <a
+          href="https://www.temu.com/za/modern-metal-wall-sconce-with-2-bulbs-semi-flush-mount-ambient-lighting-for-bedroom-entryway-living-room-sleek----not-included-living-room-lighting-contemporary-lighting-durable-lighting-g-601101525089010.html?_oak_name_id=2412435497370759147&_oak_mp_inf=EPL1gdet1ogBGiAzNjFmN2FhMzhmMzI0MWU1YWE2OWQ2YzdjYzAxMGJiOSD9z5i8pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/a8fe3ee1-0ab4-49b3-be32-53e4adbe1745.jpg&spec_gallery_id=232386&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MzAwMDA&_oak_gallery_order=1996304875,1697436647,1995613877,1982503168,1002587523&search_key=barrier%20wall%20lantern%20%20lights&refer_page_el_sn=200049&refer_page_name=search_result&refer_page_id=10009_1762673361512_xjea1aimr3&_x_sessn_id=krj7vcq0um"
+          target="_blank"
+          >View Temu Option →</a
+        >
+      </div>
 
-            <div class="item">
-                <strong>Option 2:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100798254012&sku_id=17597203965250&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675018128_n42wwt5g66&refer_page_sn=10037" target="_blank">View Option 2 →</a>
-            </div>
+      <div class="item">
+        <strong>2 Different Lengths on One Side:</strong>
+        <p>Pendant lights for bedroom</p>
+        <a
+          href="https://www.temu.com/za/1pc-modern--pendant-light-simple-lamps-multicolor-minimalist-hanging-lamp-for-kitchen-dining-bedroom-e27-g-601099538152258.html?_oak_name_id=1177955040975092410&_oak_mp_inf=EML2yKOm1ogBGiA0YTUxNGJjZDJlYTM0M2FkOGM3MzU1NGQyZjVhODA1MyC52Nq8pjM=&top_gallery_url=https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/a71b8c9791d39ef63aed8fe0b43f9cfb.jpg&spec_gallery_id=601099538152258&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MTcyMDA&_oak_gallery_order=404501269,2034352722,1941447593,1835524084,243694994&search_key=bedroom%20beside%20pendant%20lights&refer_page_el_sn=200049&refer_page_name=search_result&refer_page_id=10009_1762673590123_xps51ozxe3&_x_sessn_id=krj7vcq0um"
+          target="_blank"
+          >View Pendant Light →</a
+        >
+      </div>
 
-            <div class="item">
-                <strong>Option 3:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100225803133&sku_id=17595257965524&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675018128_n42wwt5g66&refer_page_sn=10037" target="_blank">View Option 3 →</a>
-            </div>
+      <div class="item">
+        <strong>Pergola Lights:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099573140802&sku_id=17592439318381&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762523914218_pvyqd9j9f8&refer_page_sn=10037"
+          target="_blank"
+          >View Pergola Lights →</a
+        >
+      </div>
 
-            <div class="item">
-                <strong>Option 4:</strong>
-                <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601103788367874&sku_id=17611568955613&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762675997600_wz1a0tp0nc&refer_page_sn=10037" target="_blank">View Option 4 →</a>
-            </div>
+      <h3>Gallery Light for Dina's Paintings:</h3>
+      <div class="option-group">
+        <div class="item">
+          <strong>Option 1:</strong>
+          <a
+            href="https://www.temu.com/za/1pc-led-creative-long-strip-wall-lamp-minimalist-modern-line--balcony--lighting-long-strip-tv-background-wall-decoration-light-living-room-bedroom-bedside-lamp-g-601099691530631.html?_oak_name_id=8640064388223744357&_oak_mp_inf=EIez2uym1ogBGiAyNjdkZDJiZmI2ZDQ0OWY2YmE3NjlmODM5ZGNmMjkzNSCzrfW8pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/cc1defd1-f2b3-42f5-97f3-4830f74bc9c4.jpg&spec_gallery_id=14865&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MjY5MDA&_oak_gallery_order=2009473201,2013009988,120496810,1903115575,695099913&search_key=gallery%20light&refer_page_el_sn=200049&refer_page_name=search_result&refer_page_id=10009_1762673590123_xps51ozxe3&_x_sessn_id=krj7vcq0um"
+            target="_blank"
+            >View Option 1 →</a
+          >
         </div>
 
         <div class="item">
-            <strong>Dressing Table Light:</strong>
-            <a href="https://eurotrend.co.za/product/light-16-italian-light/" target="_blank">View Eurotrend Option →</a>
-            <a href="https://www.temu.com/za/modern-metal-wall-sconce-with-2-bulbs-semi-flush-mount-ambient-lighting-for-bedroom-entryway-living-room-sleek----not-included-living-room-lighting-contemporary-lighting-durable-lighting-g-601101525089010.html?_oak_name_id=2412435497370759147&_oak_mp_inf=EPL1gdet1ogBGiAzNjFmN2FhMzhmMzI0MWU1YWE2OWQ2YzdjYzAxMGJiOSD9z5i8pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/a8fe3ee1-0ab4-49b3-be32-53e4adbe1745.jpg&spec_gallery_id=232386&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MzAwMDA&_oak_gallery_order=1996304875,1697436647,1995613877,1982503168,1002587523&search_key=barrier%20wall%20lantern%20%20lights&refer_page_el_sn=200049&refer_page_name=search_result&refer_page_id=10009_1762673361512_xjea1aimr3&_x_sessn_id=krj7vcq0um" target="_blank">View Temu Option →</a>
+          <strong>Option 2:</strong>
+          <a
+            href="https://www.temu.com/za/-15w-matte-black--sleek-semi-flush-mount-wall-fixture-with-illuminated-round-design-for-modern-bathrooms---bathroom-decor-and-accessories-g-601099768461249.html?_oak_name_id=4536149206603604684&_oak_mp_inf=EMHvsZGn1ogBGhZnb29kc19ubTFzYzhfcmVjb21tZW5kIN+lmb2mMw==&top_gallery_url=https://img.kwcdn.com/product/fancy/a0118806-ba28-4dc3-bab8-bb44fb1a0ccd.jpg&spec_gallery_id=39598&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MzY2MDA&_oak_gallery_order=413435938,1673492452,1864426474,1393356417,1784972159&refer_page_el_sn=200444&_x_sessn_id=krj7vcq0um&refer_page_name=goods&refer_page_id=10032_1762675408501_3ahwenftmg"
+            target="_blank"
+            >View Option 2 →</a
+          >
         </div>
-
-        <div class="item">
-            <strong>2 Different Lengths on One Side:</strong>
-            <p>Pendant lights for bedroom</p>
-            <a href="https://www.temu.com/za/1pc-modern--pendant-light-simple-lamps-multicolor-minimalist-hanging-lamp-for-kitchen-dining-bedroom-e27-g-601099538152258.html?_oak_name_id=1177955040975092410&_oak_mp_inf=EML2yKOm1ogBGiA0YTUxNGJjZDJlYTM0M2FkOGM3MzU1NGQyZjVhODA1MyC52Nq8pjM=&top_gallery_url=https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/a71b8c9791d39ef63aed8fe0b43f9cfb.jpg&spec_gallery_id=601099538152258&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MTcyMDA&_oak_gallery_order=404501269,2034352722,1941447593,1835524084,243694994&search_key=bedroom%20beside%20pendant%20lights&refer_page_el_sn=200049&refer_page_name=search_result&refer_page_id=10009_1762673590123_xps51ozxe3&_x_sessn_id=krj7vcq0um" target="_blank">View Pendant Light →</a>
-        </div>
-
-        <div class="item">
-            <strong>Pergola Lights:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601099573140802&sku_id=17592439318381&_oak_page_source=501&_x_sessn_id=krj7vcq0um&refer_page_name=shopping_cart&refer_page_id=10037_1762523914218_pvyqd9j9f8&refer_page_sn=10037" target="_blank">View Pergola Lights →</a>
-        </div>
-
-        <h3>Gallery Light for Dina's Paintings:</h3>
-        <div class="option-group">
-            <div class="item">
-                <strong>Option 1:</strong>
-                <a href="https://www.temu.com/za/1pc-led-creative-long-strip-wall-lamp-minimalist-modern-line--balcony--lighting-long-strip-tv-background-wall-decoration-light-living-room-bedroom-bedside-lamp-g-601099691530631.html?_oak_name_id=8640064388223744357&_oak_mp_inf=EIez2uym1ogBGiAyNjdkZDJiZmI2ZDQ0OWY2YmE3NjlmODM5ZGNmMjkzNSCzrfW8pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/cc1defd1-f2b3-42f5-97f3-4830f74bc9c4.jpg&spec_gallery_id=14865&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=MjY5MDA&_oak_gallery_order=2009473201,2013009988,120496810,1903115575,695099913&search_key=gallery%20light&refer_page_el_sn=200049&refer_page_name=search_result&refer_page_id=10009_1762673590123_xps51ozxe3&_x_sessn_id=krj7vcq0um" target="_blank">View Option 1 →</a>
-            </div>
-
-            <div class="item">
-                <strong>Option 2:</strong>
-                <a href="https://www.temu.com/za/-15w-matte-black--sleek-semi-flush-mount-wall-fixture-with-illuminated-round-design-for-modern-bathrooms---bathroom-decor-and-accessories-g-601099768461249.html?_oak_name_id=4536149206603604684&_oak_mp_inf=EMHvsZGn1ogBGhZnb29kc19ubTFzYzhfcmVjb21tZW5kIN+lmb2mMw==&top_gallery_url=https://img.kwcdn.com/product/fancy/a0118806-ba28-4dc3-bab8-bb44fb1a0ccd.jpg&spec_gallery_id=39598&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MzY2MDA&_oak_gallery_order=413435938,1673492452,1864426474,1393356417,1784972159&refer_page_el_sn=200444&_x_sessn_id=krj7vcq0um&refer_page_name=goods&refer_page_id=10032_1762675408501_3ahwenftmg" target="_blank">View Option 2 →</a>
-            </div>
-        </div>
+      </div>
     </section>
 
     <!-- Section 6: Bathroom Vanity -->
     <section class="section">
-        <h2>6. Bathroom Vanity</h2>
-        
-        <div class="item">
-            <strong>Rattan:</strong>
-            <a href="https://www.temu.com/za/artificial-plastic-rattan-weaving-strip-roll-octagonal-star-wide-band-for-diy-crafts-cabinets-chairs--projects-suitable-for-beginners--g-601100069323598.html?_oak_name_id=7890993591518785431&_oak_mp_inf=EM6G7aCo1ogBGiBiYTRiY2E2MmQ2MWY0OTUxOTI1ZDBkNWM2MjI3NTlhNyD238K9pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/08bb4c94-6950-4fb4-b835-36759bd82073.jpg&spec_gallery_id=59869&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=OTcwMA&_oak_gallery_order=1646549503,1416802809,817145151,521737932,1065672360&search_key=rattan%20to%20stick%20on%20cabinetry&refer_page_el_sn=200049&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=search_result&refer_page_id=10009_1762676206689_3r102fhzn1" target="_blank">View Rattan →</a>
-        </div>
+      <h2>6. Bathroom Vanity</h2>
 
-        <div class="item">
-            <strong>Moulding:</strong>
-            <a href="https://www.temu.com/za/1pc-self--pvc-wall-trim-wall-decoration-strip--decor-peel-and-stick-wall-panel-trim-78-74-39-37-inches-for-tiles-ceilings-doors-cabinets-mirrors-g-601099939081556.html?_oak_name_id=4236675769918362588&_oak_mp_inf=ENTa3+Kn1ogBGiA5OTllYTBiMDBiMzk0NmY2OGVhNDVlYzkwODEwOGY4NiDLr+W9pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/d4ccca60-3050-47ed-b654-c1003f762147.jpg&spec_gallery_id=601099939081556&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NzAwMA&_oak_gallery_order=564368184,456566060,751622896,129801541,1352210863&search_key=decorative%20moulding&refer_page_el_sn=200049&_x_sessn_id=i46yljsphf" target="_blank">View Moulding →</a>
-        </div>
+      <div class="item">
+        <strong>Rattan:</strong>
+        <a
+          href="https://www.temu.com/za/artificial-plastic-rattan-weaving-strip-roll-octagonal-star-wide-band-for-diy-crafts-cabinets-chairs--projects-suitable-for-beginners--g-601100069323598.html?_oak_name_id=7890993591518785431&_oak_mp_inf=EM6G7aCo1ogBGiBiYTRiY2E2MmQ2MWY0OTUxOTI1ZDBkNWM2MjI3NTlhNyD238K9pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/08bb4c94-6950-4fb4-b835-36759bd82073.jpg&spec_gallery_id=59869&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=OTcwMA&_oak_gallery_order=1646549503,1416802809,817145151,521737932,1065672360&search_key=rattan%20to%20stick%20on%20cabinetry&refer_page_el_sn=200049&_x_share_id=xWBTDW8dkyJWfBbFRkM1vRtjQ3yAF0Bu&_x_sessn_id=i46yljsphf&refer_page_name=search_result&refer_page_id=10009_1762676206689_3r102fhzn1"
+          target="_blank"
+          >View Rattan →</a
+        >
+      </div>
 
-        <div class="item">
-            <strong>Wooden Legs:</strong>
-            <a href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100185148875&refer_page_el_sn=200049&_x_sessn_id=i46yljsphf&refer_page_name=search_result&refer_page_id=10009_1762677196813_olnxmmupw6&refer_page_sn=10009" target="_blank">View Wooden Legs →</a>
-        </div>
+      <div class="item">
+        <strong>Moulding:</strong>
+        <a
+          href="https://www.temu.com/za/1pc-self--pvc-wall-trim-wall-decoration-strip--decor-peel-and-stick-wall-panel-trim-78-74-39-37-inches-for-tiles-ceilings-doors-cabinets-mirrors-g-601099939081556.html?_oak_name_id=4236675769918362588&_oak_mp_inf=ENTa3+Kn1ogBGiA5OTllYTBiMDBiMzk0NmY2OGVhNDVlYzkwODEwOGY4NiDLr+W9pjM=&top_gallery_url=https://img.kwcdn.com/product/fancy/d4ccca60-3050-47ed-b654-c1003f762147.jpg&spec_gallery_id=601099939081556&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NzAwMA&_oak_gallery_order=564368184,456566060,751622896,129801541,1352210863&search_key=decorative%20moulding&refer_page_el_sn=200049&_x_sessn_id=i46yljsphf"
+          target="_blank"
+          >View Moulding →</a
+        >
+      </div>
+
+      <div class="item">
+        <strong>Wooden Legs:</strong>
+        <a
+          href="https://www.temu.com/goods.html?_bg_fs=1&goods_id=601100185148875&refer_page_el_sn=200049&_x_sessn_id=i46yljsphf&refer_page_name=search_result&refer_page_id=10009_1762677196813_olnxmmupw6&refer_page_sn=10009"
+          target="_blank"
+          >View Wooden Legs →</a
+        >
+      </div>
     </section>
-
-</body>
+  </body>
 </html>
